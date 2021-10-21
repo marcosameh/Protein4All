@@ -143,14 +143,14 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
-                                   
-                                    
-                                        @{ApplicationUser applicationUser = await UserManager.GetUserAsync(User); }
-                                        <img class="img-80 img-radius" src="~/admin-photo/@applicationUser.Photo" alt="User-Profile-Image">
 
 
-                                        <span>@applicationUser.UserName</span>
-                                    
+                                    @{ApplicationUser applicationUser = await UserManager.GetUserAsync(User); }
+                                    <img class="img-80 img-radius" src="~/admin-photo/@applicationUser.Photo" alt="User-Profile-Image">
+
+
+                                    <span>@applicationUser.UserName</span>
+
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -158,7 +158,7 @@
 
 
                                     <li class="waves-effect waves-light">
-                                       
+
                                         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                                             <button type="submit" class="btn btn-danger">Logout</button>
                                         </form>
@@ -177,8 +177,8 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                
-                                    
+
+
                                     <img class="img-80 img-radius" src="~/admin-photo/@applicationUser.Photo" alt="User-Profile-Image"> }
 
                                     <div class="user-details">
@@ -186,7 +186,7 @@
                                     </div>
                                 </div>
 
-                                
+
                             </div>
                             <div class="p-15 p-b-0">
 
@@ -208,16 +208,17 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/Travaler/Display" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Caregories</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
                                             <a href="/Post/WaitingPosts" class="waves-effect waves-dark">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Products</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                        <li class=" ">
+                                            <a href="/category/list" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Caregories</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -229,13 +230,7 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="/Agency/Display" class="waves-effect waves-dark">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Agency</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
+
 
 
 
@@ -250,21 +245,21 @@
                                 <li>
                                     <a href="/Agency/Create" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Agency</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Product</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/Travaler/AddTravaler" class="waves-effect waves-dark">
+                                    <a href="/category/add" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Traveler</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Category</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/Admin/Create" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Admin</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Articale</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
@@ -319,6 +314,7 @@
     <!-- custom js -->
     <script type="text/javascript" src="~/assets/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="~/assets/js/script.js "></script>
+    @RenderSection("Scripts", required: false)
 
 </body>
 

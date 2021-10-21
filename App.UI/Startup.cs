@@ -1,5 +1,7 @@
 using App.Core.Domain;
+using App.Core.Managers;
 using App.Core.Models;
+using App.Core.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,12 +34,17 @@ namespace App.Core
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddIdentity<ApplicationUser, IdentityRole>(options => { options.SignIn.RequireConfirmedAccount = true; options.SignIn.RequireConfirmedAccount = true;
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true; options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
             })
-                .AddEntityFrameworkStores<Protein4allContext>().AddDefaultUI().AddDefaultTokenProviders(); ;
-            services.AddRazorPages(); 
+                
+                .AddEntityFrameworkStores<Protein4allContext>().AddDefaultUI().AddDefaultTokenProviders();
+           
+            services.AddRazorPages();
+            services.AddScoped<CategoryManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
