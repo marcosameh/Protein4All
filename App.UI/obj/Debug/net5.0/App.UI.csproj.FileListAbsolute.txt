@@ -509,3 +509,4 @@ D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cach
 C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\Razor\Pages\Admin\category-list.cshtml.g.cs
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Category\List.cshtml.g.cs
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Category\Add.cshtml.g.cs
+D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Category\Edit.cshtml.g.cs

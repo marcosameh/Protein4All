@@ -60,5 +60,14 @@ namespace App.Core.Repositories
         {
             DbContext.SaveChanges();
         }
+        public void Edit(TEntity entity)
+        {
+            // Mapping
+
+            DbContext.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            Save();
+
+        }
     }
 }

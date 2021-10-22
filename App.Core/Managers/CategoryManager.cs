@@ -11,13 +11,13 @@ namespace App.Core.Managers
     
     public class CategoryManager
     {
-        private CategoryRepo _CategoryRepo;
+        private BaseRepo<ProductCategory> _CategoryRepo;
         private  Protein4allContext _Protein4AllContext { get; }
         public CategoryManager( Protein4allContext protein4AllContext)
         {
             
             _Protein4AllContext = protein4AllContext;
-            _CategoryRepo = new CategoryRepo(_Protein4AllContext);
+            _CategoryRepo = new BaseRepo<ProductCategory>(_Protein4AllContext);
         }
         public IQueryable<ProductCategory> GetAllCategories()
         {
