@@ -506,7 +506,11 @@ D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\App.UI.dll
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\ref\App.UI.dll
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\App.UI.pdb
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cache
-C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\Razor\Pages\Admin\category-list.cshtml.g.cs
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Category\List.cshtml.g.cs
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Category\Add.cshtml.g.cs
+<<<<<<< HEAD
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Category\Edit.cshtml.g.cs
+=======
+C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\Razor\Pages\Category\Add.cshtml.g.cs
+C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\Razor\Pages\Category\List.cshtml.g.cs
+>>>>>>> a6b8a5e4020456a1771084aff966c31d290a80d5
