@@ -25,6 +25,7 @@ namespace App.Core.Models
         public string Description { get; set; }
         [Required]
         [StringLength(50)]
+        [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This product-name")]
         public string Url { get; set; }
         [Column(TypeName = "smalldatetime")]
         public DateTime ArticalDate { get; set; }

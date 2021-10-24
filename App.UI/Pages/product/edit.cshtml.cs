@@ -63,6 +63,7 @@ namespace App.UI.Pages.product
 
             
             Product.Url = Product.Url.ToLower().Replace(" ", "-");
+            Product.Url = Product.Url.ToLower().Replace("_", "-");
 
             
             _ProductManager.UpdateProduct(Product);

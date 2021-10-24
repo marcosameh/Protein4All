@@ -47,6 +47,7 @@ namespace App.Core
            
             services.AddScoped<CategoryManager>();
             services.AddScoped<ProductManager>();
+            services.AddScoped<ArticleManager>();
             
             services.AddCustomizedRoutes();
         }

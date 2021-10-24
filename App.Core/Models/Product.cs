@@ -17,6 +17,8 @@ namespace App.Core.Models
         [Required]
         [StringLength(50)]
         [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This product-name")]
+      
+
         public string Url { get; set; }
         public int CategoryId { get; set; }
         [Required]

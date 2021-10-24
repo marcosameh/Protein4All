@@ -41,9 +41,12 @@ namespace App.UI.Pages.product
             {
                 return OnGet();
             }
-            
+            int _min = 100;
+            int _max = 999;
+            Random _rdm = new Random();
+            int guid = _rdm.Next(_min, _max);
             string photopath = Directory.GetCurrentDirectory() + "/wwwroot/product-photo/";
-            string photoname = Path.GetFileName(Product.PhotoFile.FileName);
+            string photoname = guid+Path.GetFileName(Product.PhotoFile.FileName);
             string finalpath = photopath + photoname;
             using (var stream = System.IO.File.Create(finalpath))
             {
@@ -52,6 +55,7 @@ namespace App.UI.Pages.product
           
             Product.Photo = photoname;
             Product.Url = Product.Url.ToLower().Replace(" ", "-");
+            Product.Url= Product.Url.ToLower().Replace("_", "-");
             _ProductManager.AddProduct(Product);
             return Redirect("/product/list");
         }
