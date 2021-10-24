@@ -3,12 +3,14 @@
 @{
     Layout = "/Pages/Shared/DashboardLayout.cshtml";
 }
-<a asp-page="Add"><h4 class="text-primary">Add New Category</h4></a>
-<br>
+<a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Category"></a>
+
+<br><br />
+
 <!-- Hover table card start -->
 <div class="card">
     <div class="card-header">
-        <h5>Categories</h5>
+        <h5>Products</h5>
        
         <div class="card-header-right">
             <ul class="list-unstyled card-option">
@@ -29,6 +31,8 @@
                         <th>Name</th>
                         <th>Display Order</th>
                         <th>Is Active</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                        
                     </tr>
                 </thead>
@@ -42,6 +46,9 @@
                         <td>@item.Name</td>
                         <td>@item.DisplayOrder</td>
                         <td>@item.IsActive</td>
+                        <td><a asp-page="edit" asp-route-Id="@item.Id" ><input type="button" class="btn btn-success" value="Edit" /></a></td>
+                        <td><a asp-page="delete" asp-route-Id="@item.Id" ><input type="button" class="btn btn-danger" value="delete" /></a></td>
+                        
 
                         @{i++;}
                     </tr>

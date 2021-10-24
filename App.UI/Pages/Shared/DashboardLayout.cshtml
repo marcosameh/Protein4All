@@ -6,10 +6,7 @@
 <html lang="en">
 
 <head>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        ApplicationUser applicationUser = await UserManager.GetUserAsync(User);
-    }
+
 
     <meta charset="utf-8">
 
@@ -194,7 +191,7 @@
 
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="active">
-                                    <a href="/Admin/Home" class="waves-effect waves-dark">
+                                    <a href="/admin/index" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Home</span>
                                         <span class="pcoded-mcaret"></span>
@@ -208,7 +205,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="/Post/WaitingPosts" class="waves-effect waves-dark">
+                                            <a href="/product/list" class="waves-effect waves-dark">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Products</span>
                                                 <span class="pcoded-mcaret"></span>
@@ -224,7 +221,7 @@
                                         </li>
 
                                         <li class=" ">
-                                            <a href="/Post/WallPage" class="waves-effect waves-dark">
+                                            <a href="/artical/list" class="waves-effect waves-dark">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Articals</span>
                                                 <span class="pcoded-mcaret"></span>
@@ -243,7 +240,7 @@
                             <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Forms</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="/Agency/Create" class="waves-effect waves-dark">
+                                    <a href="/product/add" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Product</span>
                                         <span class="pcoded-mcaret"></span>
@@ -257,7 +254,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/Create" class="waves-effect waves-dark">
+                                    <a href="/articale/add" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Add Articale</span>
                                         <span class="pcoded-mcaret"></span>

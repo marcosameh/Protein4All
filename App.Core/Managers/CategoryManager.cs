@@ -11,21 +11,37 @@ namespace App.Core.Managers
     
     public class CategoryManager
     {
-        private BaseRepo<ProductCategory> _CategoryRepo;
+        private CategoryRepo _CategoryRepo;
         private  Protein4allContext _Protein4AllContext { get; }
         public CategoryManager( Protein4allContext protein4AllContext)
         {
             
             _Protein4AllContext = protein4AllContext;
-            _CategoryRepo = new BaseRepo<ProductCategory>(_Protein4AllContext);
+            _CategoryRepo = new CategoryRepo(protein4AllContext);
         }
         public IQueryable<ProductCategory> GetAllCategories()
         {
-            return _CategoryRepo.GetMany(x => x.IsActive).OrderBy(x=>x.DisplayOrder);
+            return _CategoryRepo.GetAll().OrderBy(x=>x.DisplayOrder);
+        }
+        public IQueryable<ProductCategory> GetActiveCategories()
+        {
+            return _CategoryRepo.GetMany(x=>x.IsActive).OrderBy(x => x.DisplayOrder);
         }
         public void AddCategory(ProductCategory category)
         {
              _CategoryRepo.Add(category);
+        }
+        public ProductCategory GetOne(int Id)
+        {
+            return _CategoryRepo.GetOne(x => x.Id == Id);
+        }
+        public void UpdateCategory(ProductCategory category)
+        {
+           _CategoryRepo.Edit(category);
+        }
+        public void DeleteCategory(int Id)
+        {
+            _CategoryRepo.Delete(Id);
         }
 
     }

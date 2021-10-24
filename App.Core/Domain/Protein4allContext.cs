@@ -17,12 +17,14 @@ namespace App.Core.Models
         {
 
             var entity = modelBuilder.Entity<ApplicationUser>();
+            var entity2 = modelBuilder.Entity<ProductCategory>();
 
 
             entity.Property(e => e.Photo)
            .IsRequired(false);
 
 
+          
 
             base.OnModelCreating(modelBuilder);
 

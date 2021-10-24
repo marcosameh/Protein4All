@@ -25,7 +25,6 @@ D:\Clients\Protein4All\Code\App.Core\bin\Debug\net5.0\App.Core.deps.json
 D:\Clients\Protein4All\Code\App.Core\bin\Debug\net5.0\App.Core.dll
 D:\Clients\Protein4All\Code\App.Core\bin\Debug\net5.0\ref\App.Core.dll
 D:\Clients\Protein4All\Code\App.Core\bin\Debug\net5.0\App.Core.pdb
-D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.csproj.AssemblyReference.cache
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.GeneratedMSBuildEditorConfig.editorconfig
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.AssemblyInfoInputs.cache
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.AssemblyInfo.cs
@@ -33,3 +32,4 @@ D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.csproj.CoreCompil
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.dll
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\ref\App.Core.dll
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.pdb
+D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.csproj.AssemblyReference.cache

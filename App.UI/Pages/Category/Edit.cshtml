@@ -1,20 +1,22 @@
-﻿@page
+﻿@page  "{id:int}"
 @model App.UI.Pages.Category.EditModel
 @{
     Layout = "/Pages/Shared/DashboardLayout.cshtml";
 }
 <html>
-<!--<body>
+<body>
     <div class="h-100 row align-items-center">
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="text-center">Edit Product Category</h5>-->
+                    <h5 class="text-center">Edit Category</h5>
+                    
                     <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
-                <!--</div>
+                </div>
                 <div class="card-block">
                     <form class="form-material" method="post">
                         <div class="form-group form-default">
+                            <input type="hidden" asp-for="Category.Id" />
                             <input type="text" asp-for="Category.Name" class="form-control" required="">
                             <span class="form-bar text-danger" asp-validation-for="Category.Name"></span>
                             <label class="float-label">Category Name</label>
@@ -26,18 +28,19 @@
                         </div>
                         <div class="form-group form-default">
                             <div class="form-check">
-                                <label class="form-check-label mr-5" for="flexCheckChecked">
+                                <label class="mr-5" for="flexCheckChecked">
                                     Is Active
 
                                 </label>
-                                <input class="form-check-input" type="checkbox" asp-for="Category.IsActive" id="flexCheckChecked" checked>
+                                <input class="form-check-input" type="checkbox" asp-for="Category.IsActive" id="checkbox1">
 
                             </div>
+
 
                         </div>
 
                         <div class="text-right">
-                            <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Add Category</button>
+                            <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Edit Category</button>
                         </div>
 
                     </form>
@@ -47,7 +50,8 @@
     </div>
     @section Scripts {
         @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
     }
 
-</body>-->
+</body>
 </html>

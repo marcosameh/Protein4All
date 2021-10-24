@@ -50,23 +50,27 @@ namespace App.Core.Repositories
 
             Save();
         }
-        public void Delete(TEntity entity)
+        public void Delete(int  Id)
         {
-            DbContext.Set<TEntity>().Remove(entity);
+
+            DbContext.Remove(DbSet.Find(Id));
 
             Save();
         }
+       
         public void Save()
         {
             DbContext.SaveChanges();
         }
         public void Edit(TEntity entity)
         {
-            // Mapping
 
-            DbContext.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
-            Save();
+
+            DbContext.Entry(entity).State = EntityState.Modified;
+            DbContext.SaveChanges();
+
+
 
         }
     }

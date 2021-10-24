@@ -2,6 +2,7 @@ using App.Core.Domain;
 using App.Core.Managers;
 using App.Core.Models;
 using App.Core.Repositories;
+using App.UI.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,10 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace App.Core
 {
@@ -30,6 +28,7 @@ namespace App.Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<Protein4allContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
@@ -42,9 +41,14 @@ namespace App.Core
             })
                 
                 .AddEntityFrameworkStores<Protein4allContext>().AddDefaultUI().AddDefaultTokenProviders();
+
+
+                       services.AddRazorPages();
            
-            services.AddRazorPages();
             services.AddScoped<CategoryManager>();
+            services.AddScoped<ProductManager>();
+            
+            services.AddCustomizedRoutes();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,9 +76,7 @@ namespace App.Core
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                     name: "default",
-                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
