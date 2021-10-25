@@ -6,7 +6,28 @@
 @{
     Layout = "/Pages/Shared/DashboardLayout.cshtml";
 }
-<a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Product"></a>
+<div class="d-flex justify-content-between flex-wrap">
+    <div>
+        <a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Product"></a>
+    </div>
+
+
+
+    <div class="input-group w-auto">
+        <div class="input-group-prepend ">
+            <label class="input-group-text" for="inputGroupSelect01"></label>
+        </div>
+        <select class="custom-select background-primary" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            @foreach (var item in Model.Categories)
+            {
+                <option value=@item.Id>@item.Name</option>
+            }
+        </select>
+    </div>
+</div>
+  
+
 
 <br>
 <br />
@@ -53,7 +74,7 @@
                             <td>@item.Url</td>
                             <td>@item.Title</td>
                             <td>@item.Category.Name</td>
-                            <td><img src="/product-photo/@item.Photo" alt="Product Photo" style="width:100px;height:150px;"/></td>
+                            <td><img src="/product-photo/@item.Photo" alt="Product Photo" style="width:100px;height:150px;" /></td>
                             <td>@item.DisplayOrder</td>
                             <td>@item.IsActive</td>
                             <td><a asp-page="edit" asp-route-Id="@item.Id"><input type="button" class="btn btn-success" value="Edit" /></a></td>
