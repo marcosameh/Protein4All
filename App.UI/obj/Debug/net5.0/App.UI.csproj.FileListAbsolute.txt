@@ -366,3 +366,7 @@ C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\bin\Debug\net5.0\App.Core.p
 C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\App.UI.Views.pdb
 C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\App.UI.csproj.CopyComplete
 C:\Users\Marco Sameh\source\repos\Protein4All\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cache
+D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\article\add.cshtml.g.cs
+D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\article\delete.cshtml.g.cs
+D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\article\edit.cshtml.g.cs
+D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\article\list.cshtml.g.cs

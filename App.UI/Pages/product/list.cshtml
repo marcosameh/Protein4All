@@ -1,32 +1,42 @@
 ﻿@page
 @model App.UI.Pages.product.listModel
 @{
-    Layout = "/Pages/Shared/_Layout.cshtml";
-}
-@{
     Layout = "/Pages/Shared/DashboardLayout.cshtml";
 }
+
+<hesd>
+    <link href="~/css/selectstylecss.css" rel="stylesheet" />
+</hesd>
 <div class="d-flex justify-content-between flex-wrap">
+
     <div>
         <a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Product"></a>
     </div>
 
-
-
-    <div class="input-group w-auto">
-        <div class="input-group-prepend ">
-            <label class="input-group-text" for="inputGroupSelect01"></label>
-        </div>
-        <select class="custom-select background-primary" id="inputGroupSelect01">
-            <option selected>Choose...</option>
+    <div class="custom-select" style="width:200px;">
+        <select>
+            <option value="0">Select Category:</option>
             @foreach (var item in Model.Categories)
             {
                 <option value=@item.Id>@item.Name</option>
             }
         </select>
     </div>
+
+    @*<div class="input-group w-auto">
+            <div class="input-group-prepend ">
+                <label class="input-group-text" for="inputGroupSelect01"></label>
+            </div>
+            <select class="custom-select background-primary" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                @foreach (var item in Model.Categories)
+                {
+                    <option value=@item.Id>@item.Name</option>
+                }
+            </select>
+        </div>*@
 </div>
-  
+
 
 
 <br>
@@ -93,4 +103,10 @@
 </div>
 
 
+@section Scripts{
 
+
+    <script src="~/js/Select.js"></script>
+
+
+}
