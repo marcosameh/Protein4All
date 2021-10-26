@@ -21,25 +21,45 @@ namespace App.UI.Pages.product
         public SelectList CategoryList { get; set; }
         public IEnumerable<ProductCategory> Categories { get; set; }
         [BindProperty(SupportsGet =true)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public listModel(ProductManager productManager, CategoryManager categoryManager)
         {
             _ProductManager = productManager;
             _categoryManager = categoryManager;
         }
-        public void OnGet(int?Id)
+        public IActionResult OnGet(int?Id)
         {
+            this.Id =Id;
+            if (Id == null)
+            {
+                Categories = _categoryManager.GetAllCategories();
+                CategoryList = new SelectList(Categories, "Id", "Name");
+                Products = _ProductManager.GetAllProduct();
+                return Page();
+            }
             Categories = _categoryManager.GetAllCategories();
             CategoryList = new SelectList(Categories, "Id", "Name");
-            Products = _ProductManager.GetAllProduct();
-            
+            Products = _ProductManager.GetProduct(Id);
+            return Page();
+        }
 
+        public IActionResult OnPost(string productname)
+        {
+
+            if (String.IsNullOrEmpty(productname)) 
+            {
+                
+                return OnGet(Id);
+            }
+            Categories = _categoryManager.GetAllCategories();
+            CategoryList = new SelectList(Categories, "Id", "Name");
+            Products = _ProductManager.GetProductByName(productname);
+            return Page();
         }
 
 
-        
 
-        
+
     }
 }
 

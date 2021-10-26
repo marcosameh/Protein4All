@@ -24,6 +24,14 @@ namespace App.Core.Managers
         {
             return ProductRepo.GetMany(null,x=>x.Category).OrderBy(x => x.DisplayOrder);
         }
+        public IQueryable<Product> GetProduct(int? CategoryId)
+        {
+            return ProductRepo.GetMany(x=>x.CategoryId==CategoryId.Value, x => x.Category).OrderBy(x => x.DisplayOrder);
+        }
+        public IQueryable<Product> GetProductByName(string name)
+        {
+            return ProductRepo.GetMany(x => x.Title.Contains(name), x => x.Category).OrderBy(x => x.DisplayOrder);
+        }
         public void AddProduct(Product product)
         {
             ProductRepo.Add(product);

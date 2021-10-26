@@ -1,11 +1,11 @@
-﻿@page
+﻿@page "{Id?}"
 @model App.UI.Pages.product.listModel
 @{
     Layout = "/Pages/Shared/DashboardLayout.cshtml";
 }
 
 <hesd>
-    <link href="~/css/selectstylecss.css" rel="stylesheet" />
+    <link href="~/css/search.css" rel="stylesheet" />
 </hesd>
 <div class="d-flex justify-content-between flex-wrap">
 
@@ -13,28 +13,20 @@
         <a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Product"></a>
     </div>
 
-    <div class="custom-select" style="width:200px;">
-        <select>
-            <option value="0">Select Category:</option>
+
+    <div class="dropdown mr-2">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Category
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             @foreach (var item in Model.Categories)
             {
-                <option value=@item.Id>@item.Name</option>
+                <a class="dropdown-item" href="/product/list/@item.Id">@item.Name</a>
             }
-        </select>
+        </div>
     </div>
 
-    @*<div class="input-group w-auto">
-            <div class="input-group-prepend ">
-                <label class="input-group-text" for="inputGroupSelect01"></label>
-            </div>
-            <select class="custom-select background-primary" id="inputGroupSelect01">
-                <option selected>Choose...</option>
-                @foreach (var item in Model.Categories)
-                {
-                    <option value=@item.Id>@item.Name</option>
-                }
-            </select>
-        </div>*@
 </div>
 
 
@@ -48,13 +40,16 @@
         <h5>Products</h5>
 
         <div class="card-header-right">
-            <ul class="list-unstyled card-option">
-                <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                <li><i class="fa fa-window-maximize full-card"></i></li>
-                <li><i class="fa fa-minus minimize-card"></i></li>
-                <li><i class="fa fa-refresh reload-card"></i></li>
-                <li><i class="fa fa-trash close-card"></i></li>
-            </ul>
+            <form method="post">
+                <div class="input-group">
+                    <input type="text" name="productname" class="form-control" placeholder="Search this blog">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="card-block table-border-style">
@@ -106,7 +101,7 @@
 @section Scripts{
 
 
-    <script src="~/js/Select.js"></script>
+
 
 
 }
