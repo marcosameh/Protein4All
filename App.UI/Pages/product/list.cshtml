@@ -44,7 +44,7 @@
                 <div class="input-group">
                     <input type="text" name="productname" class="form-control" placeholder="Search this blog">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">
+                        <button class="btn btn-default" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -60,6 +60,7 @@
                         <th>#</th>
                         <th>Url</th>
                         <th>Title</th>
+                        <th>Price</th>
                         <th>Category Name</th>
                         <th>Photo</th>
                         <th>Display Order</th>
@@ -78,6 +79,7 @@
                             <th scope="row">@i</th>
                             <td>@item.Url</td>
                             <td>@item.Title</td>
+                            <td>@item.Price.ToString("###,##")</td>
                             <td>@item.Category.Name</td>
                             <td><img src="/product-photo/@item.Photo" alt="Product Photo" style="width:100px;height:150px;" /></td>
                             <td>@item.DisplayOrder</td>

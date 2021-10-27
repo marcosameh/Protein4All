@@ -15,6 +15,8 @@ namespace App.Core.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        public decimal Price { get; set; }
+        [Required]
         [StringLength(50)]
         [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This product-name")]
       
@@ -23,6 +25,8 @@ namespace App.Core.Models
         public int CategoryId { get; set; }
         [Required]
         [StringLength(50)]
+
+        
         public string Title { get; set; }
         [StringLength(90)]
         public string SubTitle { get; set; }

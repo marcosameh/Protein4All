@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Core.Models
 {
+    [Index(nameof(Url), Name = "IX_Artical", IsUnique = true)]
     public partial class Articals
     {
         [Key]
@@ -25,7 +26,7 @@ namespace App.Core.Models
         public string Description { get; set; }
         [Required]
         [StringLength(50)]
-        [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This product-name")]
+        [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This article-name")]
         public string Url { get; set; }
         [Column(TypeName = "smalldatetime")]
         public DateTime ArticalDate { get; set; }
