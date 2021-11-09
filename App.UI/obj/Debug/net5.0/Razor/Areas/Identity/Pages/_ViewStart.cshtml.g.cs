@@ -21,14 +21,14 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 2 "D:\Clients\Protein4All\Code\App.UI\Areas\Identity\Pages\_ViewImports.cshtml"
-using App.Core.Areas.Identity;
+using App.UI.Areas.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\Clients\Protein4All\Code\App.UI\Areas\Identity\Pages\_ViewImports.cshtml"
-using App.Core.Areas.Identity.Pages;
+using App.UI.Areas.Identity.Pages;
 
 #line default
 #line hidden
@@ -41,7 +41,7 @@ using App.Core.Domain;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"acfba29d0bb675ecb22581fc46452ab8c0178ccb", @"/Areas/Identity/Pages/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e6c074d5d3f6ef0d638bafb7a748da1cd38f1b51", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"015e1565c29ffda0fcc401b058aae8f787916032", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     public class Areas_Identity_Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

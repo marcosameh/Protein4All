@@ -159,6 +159,10 @@
                                         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                                             <button type="submit" class="btn btn-danger">Logout</button>
                                         </form>
+                                        <br />
+                                        <a class="form-inline" asp-area="Identity" asp-page="/account/manage/changepassword" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                            <input type="button" class="btn btn-outline-success" value="Change Password">
+                                        </a>
                                     </li>
                                 </ul>
                             </li>

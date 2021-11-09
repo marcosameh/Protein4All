@@ -18,7 +18,7 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace App.Core.Areas.Identity.Pages.Account
+namespace App.UI.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel

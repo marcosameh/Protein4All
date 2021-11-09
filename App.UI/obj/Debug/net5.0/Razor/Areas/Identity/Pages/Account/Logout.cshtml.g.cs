@@ -21,14 +21,14 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 2 "D:\Clients\Protein4All\Code\App.UI\Areas\Identity\Pages\_ViewImports.cshtml"
-using App.Core.Areas.Identity;
+using App.UI.Areas.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\Clients\Protein4All\Code\App.UI\Areas\Identity\Pages\_ViewImports.cshtml"
-using App.Core.Areas.Identity.Pages;
+using App.UI.Areas.Identity.Pages;
 
 #line default
 #line hidden
@@ -42,14 +42,14 @@ using App.Core.Domain;
 #nullable disable
 #nullable restore
 #line 1 "D:\Clients\Protein4All\Code\App.UI\Areas\Identity\Pages\Account\_ViewImports.cshtml"
-using App.Core.Areas.Identity.Pages.Account;
+using App.UI.Areas.Identity.Pages.Account;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9bda081e18dd8c851ef4e2a28b1434286f35f566", @"/Areas/Identity/Pages/Account/Logout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e6c074d5d3f6ef0d638bafb7a748da1cd38f1b51", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f43cca6955e9a33cba5d2f4e1483f1c9e493d9e0", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"015e1565c29ffda0fcc401b058aae8f787916032", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e063d019df95c2aa75d66c802062f1757cb2e59a", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account_Logout : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-inline"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -108,7 +108,7 @@ using App.Core.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
             WriteLiteral("            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9bda081e18dd8c851ef4e2a28b1434286f35f5666052", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9bda081e18dd8c851ef4e2a28b1434286f35f5666046", async() => {
                 WriteLiteral("\r\n                <button type=\"submit\" class=\"nav-link btn btn-link text-dark\">Click here to Logout</button>\r\n            ");
             }
             );
