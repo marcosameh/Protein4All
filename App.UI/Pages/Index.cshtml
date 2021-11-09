@@ -1,10 +1,275 @@
 ﻿@page
+
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    var i = 0;
+    var c = 0;
 }
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- shop -->
+            @foreach (var category in Model.Categories)
+            {
+                if (category.Product.Any())
+                {
+            <div class="col-md-4 col-xs-6">
+                <a href="/product-listing/@category.Id">
+                    <div class="shop">
+                        <div class="shop-img">
+                            <img src="/category-photos/@category.Photo" alt="بروتينات">
+                        </div>
+                        <div class="shop-body">
+                            <h3>@category.Name</h3>
+                            <i href="/product-listing/@category.Id" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+            }
+            <!-- /shop -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
 </div>
+<!-- /SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">المنتجات</h3>
+                    <div class="section-nav">
+                        <ul class="section-tab-nav tab-nav">
+
+                            @foreach (var category in Model.Categories)
+                            {
+
+
+                            @if (category.Product.Any())
+                                {
+                            <li class="@(i==0?"active":string.Empty)"><a data-toggle="tab" href="#@category.Id">@category.Name</a></li>
+                                    i++;
+                                }
+
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /section title -->
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+
+                        @foreach (var item in Model.AllProduct.AsEnumerable().GroupBy(x=>x.CategoryId))
+                        {
+
+                        <div id="@item.Key" class="tab-pane @(c==0?"active":string.Empty)">
+                            <div class="products-slick" data-nav="#slick-nav-1">
+                                <!-- product -->
+                                @foreach (var product in item)
+                                    {
+                                        c++;
+
+                                <div class="product">
+                                    <a href="/product-details/@product.Url">
+                                        <div class="product-img">
+
+                                            <img src="~/product-photo/@product.Photo" alt="">
+                                            <div class="product-label">
+                                                @if ((product.DisplayOrder < 3) || (product.DisplayOrder == 4))
+                                                    {
+                                                <span class="new">NEW</span>
+                                                    }
+
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-name">@product.Title</p>
+                                            <h4 class="product-category">@product.SubTitle</h4>
+                                            <h4 class="product-price">@product.Price.ToString("###,##") EGP</h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <i class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></i>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <i class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> order now</i>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                            }
+
+                                <!-- /product -->
+
+                            </div>
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        }
+
+
+                        <!-- /tab -->
+                    </div>
+                </div>
+            </div>
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section section-padding light-bg">
+
+    <div class="spacer bg-white spacer-lg spacer-bottom"></div>
+
+    <div class="container">
+
+        <div class="section-title text-center">
+            <h3 class="subtitle">  مقالات </h3>
+
+        </div>
+
+        <div class="row">
+
+            <!-- Article Start -->
+            @foreach (var news in Model.Articls.Take(3))
+            {
+
+            <div class="col-md-4">
+                <article class="sigma_post">
+                    <div class="sigma_post-thumb">
+                        <a href="/news-details/@news.Url">
+                            <img src="/artical-photos/@news.Photo" style="width:280px;height:190px;" alt="Gym">
+                        </a>
+                        <div class="sigma_post-date">
+                            <span>@news.ArticalDate.Day</span>
+                            <span>@news.ArticalDate.ToString("MMM")</span>
+                        </div>
+                    </div>
+                    <div class="sigma_post-body">
+                        <h4> <a href="/news-details/@news.Url">@news.Title</a> </h4>
+                        <h5> @news.SubTitle </h5>
+                        <a href="/news-details/@news.Url" class="btn-link">Continue Reading <i class="fa fa-arrow-circle-o-right"></i> </a>
+                    </div>
+                </article>
+            </div>
+
+
+            }
+
+            <!-- Article End -->
+
+
+        </div>
+    </div>
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- NEWSLETTER -->
+<div id="newsletter" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="newsletter">
+                    <p>send your message for  <strong>PORTEIN 4 ALL</strong></p>
+                    <form id="form" method="post">
+                        <input class="input" type="email" placeholder="Enter Your Email" id="SubscribetionEmail">
+                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                    </form>
+                    <ul class="newsletter-follow">
+                        <li>
+                            <a href="https://www.facebook.com/protein4all.supplements" target="_blank"><i class="fa fa-facebook-official fa-lg" style="color:blue"></i></a>
+                        </li>
+                        @*<li>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </li>*@
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=201225816265&text=welcome%20dears%20" target="_blank"><i class="fa fa-whatsapp fa-lg" style="color:green"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /NEWSLETTER -->
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+
+            $('#form').submit(function (evt) {
+                var Email = $("#SubscribetionEmail").val();
+                if ((Email != null || "")) {
+                    $.ajax({
+                        type: "post",
+                        url: "/Subscription",
+                        data: { Email: Email },
+                        headers: {
+                            RequestVerificationToken:
+                                $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (res) {
+                            if (res == 1) {
+                                Swal.fire(
+                                    'Subscribed!',
+                                    '',
+                                    'success'
+                                )
+                            }
+                            else {
+                                Swal.fire('your are alerady Subscribed! ')
+                            }
+                        }
+
+                    })
+                }
+                evt.preventDefault();
+
+            });
+        });
+    </script>
+}

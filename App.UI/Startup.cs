@@ -46,8 +46,11 @@ namespace App.Core
                        services.AddRazorPages();
            
             services.AddScoped<CategoryManager>();
+            services.AddScoped<EmailManager>();
             services.AddScoped<ProductManager>();
+            services.AddScoped<SubscriptionManager>();
             services.AddScoped<ArticleManager>();
+            services.AddScoped<ArticleCategoryManager>();
             
             services.AddCustomizedRoutes();
         }

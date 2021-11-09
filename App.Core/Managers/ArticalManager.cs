@@ -22,7 +22,11 @@ namespace App.Core.Managers
 
         public IQueryable<Articals> GetAllArtical()
         {
-            return ProductRepo.GetAll().OrderBy(x => x.DisplayOrder);
+            return ProductRepo.GetMany(null,X=>X.Category).OrderBy(x => x.DisplayOrder);
+        }
+        public IQueryable<Articals> GetArticals(int? CategoryId)
+        {
+            return ProductRepo.GetMany(X=>X.CategoryId==CategoryId, X => X.Category).OrderBy(x => x.DisplayOrder);
         }
         public void AddArtical(Articals Artical)
         {
@@ -31,6 +35,10 @@ namespace App.Core.Managers
         public Articals GetOne(int Id)
         {
             return ProductRepo.GetOne(x => x.Id == Id);
+        }
+        public Articals GetArticleDetails(string Url)
+        {
+            return ProductRepo.GetOne(x=>x.Url == Url);
         }
         public void UpdateArtical(Articals Artical)
         {

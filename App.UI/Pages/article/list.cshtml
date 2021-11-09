@@ -1,65 +1,82 @@
-﻿@page
+﻿@page "{Id?}"
 @model App.UI.Pages.article.listModel
 @{
     Layout = "/Pages/Shared/DashboardLayout.cshtml";
 }
-<a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Artical"></a>
+<div class="d-flex justify-content-between flex-wrap">
 
-<br>
-<br />
+    <a asp-page="Add"><input type="button" class="btn btn-out-dashed btn-primary ml-2 " value="Add New Artical"></a>
 
-<!-- Hover table card start -->
-<div class="card">
-    <div class="card-header">
-        <h5>Products</h5>
+    <div class="dropdown mr-2">
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Category
+        </a>
 
-        <div class="card-header-right">
-            <ul class="list-unstyled card-option">
-                <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                <li><i class="fa fa-window-maximize full-card"></i></li>
-                <li><i class="fa fa-minus minimize-card"></i></li>
-                <li><i class="fa fa-refresh reload-card"></i></li>
-                <li><i class="fa fa-trash close-card"></i></li>
-            </ul>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            @foreach (var item in Model.Categories)
+            {
+                <a class="dropdown-item" href="/article/list/@item.Id">@item.Name</a>
+            }
         </div>
     </div>
-    <div class="card-block table-border-style">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Url</th>
-                        <th>Title</th>
-                        <th>SubTitle</th>
-                        <th>Photo</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+    </div>
+    <br>
+    <br />
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int i = 1;}
-                    @foreach (var item in Model.Articals)
-                    {
-                    <tr>
+    <!-- Hover table card start -->
+    <div class="card">
+        <div class="card-header">
+            <h5>Products</h5>
 
-                        <th scope="row">@i</th>
-                        <td>@item.Url</td>
-                        <td>@item.Title</td>
-                        <td>@item.SubTitle</td>
-                        <td><img src="/artical-photos/@item.Photo" alt="artical Photo" style="width:220px;height:150px;" /></td>
-                        <td><a asp-page="edit" asp-route-Id="@item.Id"><input type="button" class="btn btn-success" value="Edit" /></a></td>
-                        <td><a asp-page="delete" asp-route-Id="@item.Id"><input type="button" class="btn btn-danger" value="delete" /></a></td>
+            <div class="card-header-right">
+                <ul class="list-unstyled card-option">
+                    <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                    <li><i class="fa fa-window-maximize full-card"></i></li>
+                    <li><i class="fa fa-minus minimize-card"></i></li>
+                    <li><i class="fa fa-refresh reload-card"></i></li>
+                    <li><i class="fa fa-trash close-card"></i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Url</th>
+                            <th>Title</th>
+                            <th>SubTitle</th>
+                            <th>Category</th>
+                            <th>Photo</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int i = 1;}
+                        @foreach (var item in Model.Articals)
+                        {
+                            <tr>
+
+                                <th scope="row">@i</th>
+                                <td>@item.Url</td>
+                                <td>@item.Title</td>
+                                <td>@item.SubTitle</td>
+                                <td>@item.Category.Name</td>
+                                <td><img src="/artical-photos/@item.Photo" alt="artical Photo" style="width:220px;height:150px;" /></td>
+                                <td><a asp-page="edit" asp-route-Id="@item.Id"><input type="button" class="btn btn-success" value="Edit" /></a></td>
+                                <td><a asp-page="delete" asp-route-Id="@item.Id"><input type="button" class="btn btn-danger" value="delete" /></a></td>
 
 
-                        @{i++;}
-                    </tr>
-                    }
+                                @{i++;}
+                            </tr>
+                        }
 
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>

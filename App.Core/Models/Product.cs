@@ -15,19 +15,15 @@ namespace App.Core.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public decimal Price { get; set; }
-        [Required]
         [StringLength(50)]
         [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This product-name")]
-      
-
         public string Url { get; set; }
         public int CategoryId { get; set; }
         [Required]
         [StringLength(50)]
-
-        
         public string Title { get; set; }
+        [Column(TypeName = "smallmoney")]
+        public decimal Price { get; set; }
         [StringLength(90)]
         public string SubTitle { get; set; }
         [StringLength(300)]
@@ -35,8 +31,9 @@ namespace App.Core.Models
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public bool IsActive { get; set; }
-        public int DisplayOrder { get; set; }
-         [Required]
+        public int? DisplayOrder { get; set; }
+        [Required]
+        [StringLength(80)]
         public string Photo { get; set; }
 
         [ForeignKey(nameof(CategoryId))]

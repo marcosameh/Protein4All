@@ -1,0 +1,73 @@
+﻿@page
+@model App.UI.Pages.product_listingModel
+@inject App.Core.Managers.CategoryManager CategoryManager 
+
+
+<!-- STORE -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <div id="store" class="col-md-10 col-md-push-1">
+            <!-- store products -->
+            <div class="row">
+                @foreach (var product in Model.Products)
+                {
+
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <a href="/product-details/@product.Url">
+                                <div class="product-img">
+
+                                    <img src="~/product-photo/@product.Photo" alt="@product.Title">
+                                    <div class="product-label">
+                                        @if ((product.DisplayOrder <= 3))
+                                        {
+                                            <span class="new">NEW</span>
+                                        }
+
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-name">@product.Title</p>
+                                    <h4 class="product-category">@product.SubTitle</h4>
+                                    <h4 class="product-price">@product.Price.ToString("###,##") EGP</h4>
+                                    <div class="product-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product-btns">
+                                        <i class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></i>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <i class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> order now</i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+            @{
+                var PerviousDisapled = !Model.Products.PerviousPage ? "disabled" : "";
+                var NextDisapled = !Model.Products.NextPage ? "disabled" : "";
+                var NextPageIndex = Model.Products.PageIndex + 1;
+                var PerviousPageIndex = Model.Products.PageIndex - 1;
+            }
+
+            <!-- /store products -->
+            <!-- store bottom filter -->
+            <div class="store-filter clearfix">
+
+                <a href="/product-listing/@Model.Products.First().CategoryId/@PerviousPageIndex" class="btn btn-danger @PerviousDisapled">Pervious</a>
+                <a href="/product-listing/@Model.Products.First().CategoryId/@NextPageIndex" class="btn btn-danger @NextDisapled">Next</a>
+            </div>
+            <!-- /store bottom filter -->
+        </div>
+        <!-- /STORE -->
+    </div>
+</div>

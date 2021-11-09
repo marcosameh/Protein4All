@@ -1,0 +1,60 @@
+﻿@page
+@model App.UI.Pages.blogModel
+
+<!-- partial -->
+<!-- Post Content Start -->
+<div class="section sigma_post-single">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-8">
+
+                <div class="post-detail-wrapper">
+
+                    <div class="entry-content">
+                        <img src="/artical-photos/@Model.News.Photo" style="width:500px;height:300px;" alt="@Model.News.Title">
+                    </div>
+                    <div class="sigma_post-meta">
+                        <a href="#"> <i class="fa fa-calendar"></i> @Model.News.ArticalDate.ToString("MMMM dd, yyyy")</a>
+                    </div>
+                    <br />
+                    <h3 class="entry-title">@Model.News.Title</h3>
+                    <h4>@Model.News.SubTitle</h4>
+
+                    <p>
+
+
+
+                        @Model.News.Description
+
+                    </p>
+
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+                        <ul class="list-inline">
+
+                            <li class="list-inline-item"><a href="https://www.facebook.com/protein4all.supplements" target="_blank"><i class="fa fa-facebook-official fa-lg" style="color:blue;"></i></a></li>
+                           
+                            <li class="list-inline-item"><a href="https://mywa.link/h4gpioij" target="_blank"><i class="fa fa-whatsapp fa-lg" style="color:green"></i></a></li>
+                           
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Post Meta Start -->
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+

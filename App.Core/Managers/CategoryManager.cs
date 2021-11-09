@@ -25,7 +25,7 @@ namespace App.Core.Managers
         }
         public IQueryable<ProductCategory> GetActiveCategories()
         {
-            return _CategoryRepo.GetMany(x=>x.IsActive).OrderBy(x => x.DisplayOrder);
+            return _CategoryRepo.GetMany(x=>x.IsActive,x=>x.Product).OrderBy(x => x.DisplayOrder);
         }
         public void AddCategory(ProductCategory category)
         {

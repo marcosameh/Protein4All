@@ -18,11 +18,19 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[ArticleCategory]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Product]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[ProductCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Subscriptions]",
          "ObjectType": 0
       }
    ],

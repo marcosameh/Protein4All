@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using App.Core.Managers;
@@ -23,12 +24,25 @@ namespace App.UI.Pages.Category
         public void OnGet()
         {
         }
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            int _min = 100;
+            int _max = 999;
+            Random _rdm = new Random();
+            int guid = _rdm.Next(_min, _max);
+            string photopath = Directory.GetCurrentDirectory() + "/wwwroot/category-photos/";
+            string photoname = guid + Path.GetFileName(Category.PhotoFile.FileName);
+            string finalpath = photopath + photoname;
+            using (var stream = System.IO.File.Create(finalpath))
+            {
+                await Category.PhotoFile.CopyToAsync(stream);
+            }
+
+            Category.Photo = photoname;
             _CategoryManager.AddCategory(Category);
             return Redirect("/category/list");
         }

@@ -1,0 +1,270 @@
+﻿@page
+
+@model App.UI.Pages.product_detailsModel
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Product main img -->
+            <div class="col-md-5 col-md-pull-1">
+                <div id="product-main-img">
+                    <div class="product-preview">
+                        <img src="/product-photo/@Model.CurrentProduct.Photo" alt="@Model.CurrentProduct.Title">
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- /Product main img -->
+            <!-- Product details -->
+            <div class="col-md-5">
+                <div class="product-details">
+                    <h2 class="product-name">@Model.CurrentProduct.Title</h2>
+                    <div>
+                        <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h3 class="product-price">@Model.CurrentProduct.Price.ToString("###,##") EGP</h3>
+                        <span class="product-available">متوفر</span>
+                    </div>
+                    <p>@Model.CurrentProduct.SubTitle</p>
+
+
+
+
+
+                    <ul class="product-links">
+
+                        
+                        <li>
+                            <a href="https://www.facebook.com/protein4all.supplements" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        </li>
+                        @*<li>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </li>*@
+                        <li>
+                            <a href="whatsapp://send?abid=01225816265&text=Hello%2C%20World!" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <!-- /Product details -->
+
+
+
+
+            <br />
+            <br />
+
+            <div class="col-md-6 animate-box">
+                <h3>تواصل معانا</h3>
+                <form method="post" id="form">
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <!-- <label for="fname">First Name</label> -->
+                            <input type="text" id="name" class="form-control" asp-for="Email.Name" placeholder="الاسم">
+                            <span class="text-danger" asp-validation-for="Email.Name"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- <label for="lname">Last Name</label> -->
+                            <input type="text" id="phone" class="form-control" asp-for="Email.PhoneNumber" placeholder="رقم التليفون">
+                            <span class="text-danger" asp-validation-for="Email.PhoneNumber"></span>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <!-- <label for="email">Email</label> -->
+                            <input type="text" id="email" class="form-control" asp-for="Email.email" placeholder="عنوان البريد الالكترونى">
+                            <span class="text-danger" asp-validation-for="Email.email"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <!-- <label for="message">Message</label> -->
+                            <textarea id="message" cols="30" rows="10" asp-for="Email.Message" class="form-control" ></textarea>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="g-recaptcha"
+                             data-sitekey="6LcGGA4dAAAAAJd4UXcuHn-CQBKk8T6j77jiQ5zb"></div>
+                        <div class="text-right">
+                            <input type="submit" value="ارسال" class="btn btn-primary" onclick="javascript: return form_validate();" placeholder="اترك رسالتك هنا">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Product tab -->
+            <div class="col-md-12">
+                <div id="product-tab">
+                    <!-- product tab nav -->
+                    <ul class="tab-nav">
+                        <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+
+                    </ul>
+                    <!-- /product tab nav -->
+                    <!-- product tab content -->
+                    <div class="tab-content">
+                        <!-- tab1  -->
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>@Model.CurrentProduct.Description.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /tab1  -->
+
+                    </div>
+                    <!-- /product tab content  -->
+                </div>
+            </div>
+            <!-- /product tab -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- Section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 class="title">منتجات متشابهة</h3>
+                </div>
+            </div>
+
+            <!-- product -->
+            <!-- product -->
+            @foreach (var product in Model.RelatedProducts)
+            {
+                <div class="col-md-3 col-xs-6">
+
+
+                    <div class="product">
+                        <a href="/product-details/@product.Url">
+                            <div class="product-img">
+
+                                <img src="~/product-photo/@product.Photo" alt="@product.Title">
+                                <div class="product-label">
+                                    @if ((product.DisplayOrder < 3) || (product.DisplayOrder == 4))
+                                    {
+                                        <span class="new">NEW</span>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="product-body">
+                                <p class="product-name">@product.Title</p>
+                                <h4 class="product-category">@product.SubTitle</h4>
+                                <h4 class="product-price">@product.Price.ToString("###,##") EGP</h4>
+                                <div class="product-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-btns">
+                                    <i class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></i>
+                                </div>
+                            </div>
+                            <div class="add-to-cart">
+                                <i class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> order now</i>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            }
+
+            <!-- /product -->
+
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Section -->
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+        function form_validate() {
+          
+                if (grecaptcha.getResponse() == "") {
+                    alert("Please complete 'I am not a robot' test");
+                    return false;
+                }
+                
+           
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+             
+
+            if ((@TempData["alert"]) == 1) {
+                Swal.fire(
+                    'Email Send Successfly!',
+                    '',
+                    'success'
+                )
+            }
+            else if ((@TempData["alert"]) == 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Email Not Sent!',
+                    footer: ''
+                })
+            }
+        });
+    </script>
+
+}

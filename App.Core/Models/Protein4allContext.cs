@@ -21,12 +21,22 @@ namespace App.Core.Models
         }
 
         public virtual DbSet<Articals> Articals { get; set; }
+        public virtual DbSet<ArticleCategory> ArticleCategory { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductCategory> ProductCategory { get; set; }
+        public virtual DbSet<Subscriptions> Subscriptions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Articals>(entity =>
+            {
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Articals)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK_Articals_ArticleCategory");
+            });
 
             modelBuilder.Entity<Product>(entity =>
             {

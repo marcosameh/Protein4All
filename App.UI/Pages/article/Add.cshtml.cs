@@ -7,27 +7,29 @@ using App.Core.Managers;
 using App.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.UI.Pages.article
 {
     public class addModel : PageModel
     {
         private readonly ArticleManager _ArticalManager;
-       
+        private readonly ArticleCategoryManager articleCategoryManager;
 
         [BindProperty]
         public Articals Artical { get; set; }
-       
- 
-        public addModel(ArticleManager ArticalManager)
+        public IEnumerable<ArticleCategory> Categories { get; set; }
+        public SelectList CategoryList { get; set; }
+
+        public addModel(ArticleManager ArticalManager,ArticleCategoryManager articleCategoryManager)
         {
             _ArticalManager = ArticalManager;
-          
-
+            this.articleCategoryManager = articleCategoryManager;
         }
         public IActionResult OnGet()
         {
-           
+            Categories = articleCategoryManager.GetAllCategories();
+            CategoryList = new SelectList(Categories, "Id", "Name");
             return Page();
 
         }

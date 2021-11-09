@@ -10,7 +10,7 @@
 <!-- Hover table card start -->
 <div class="card">
     <div class="card-header">
-        <h5>Products</h5>
+        <h5>Categories</h5>
        
         <div class="card-header-right">
             <ul class="list-unstyled card-option">
@@ -29,6 +29,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Photo</th>
                         <th>Display Order</th>
                         <th>Is Active</th>
                         <th>Edit</th>
@@ -44,6 +45,7 @@
 
                         <th scope="row">@i</th>
                         <td>@item.Name</td>
+                        <td><img src="/category-photos/@item.Photo" alt="artical Photo" style="width:170px;height:170px;" /></td>
                         <td>@item.DisplayOrder</td>
                         <td>@item.IsActive</td>
                         <td><a asp-page="edit" asp-route-Id="@item.Id" ><input type="button" class="btn btn-success" value="Edit" /></a></td>

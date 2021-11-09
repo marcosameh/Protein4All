@@ -1,0 +1,62 @@
+﻿@page
+@model App.UI.Pages.news_listingModel
+
+
+
+<div class="section">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-8">
+                @foreach (var news in Model.News)
+                {
+                  
+                        <article>
+                            <div>
+                                <a href="/news-details/@news.Url">
+                                    <img src="/artical-photos/@news.Photo" style="width:500px;height:400px;" alt="@news.Title">
+                                </a>
+                                <div>
+                                    <span>@news.ArticalDate.Day/</span>
+                                    <span>@news.ArticalDate.ToString("MMM")</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h5> <a href="/news-details/@news.Url">@news.Title</a> </h5>
+                                <p>
+                                    @news.SubTitle
+                                </p>
+
+                                <div>
+                                    <a href="/news-details/@news.Url" class="btn-link"> Read More <i class="fa fa-plus"></i> </a>
+                                </div>
+
+                            </div>
+                        </article>
+                  
+                        <br />
+
+
+
+
+
+                }
+
+                @{
+                    var PerviousDisapled = !Model.News.PerviousPage ? "disabled" : "";
+                    var NextDisapled = !Model.News.NextPage ? "disabled" : "";
+                    var NextPageIndex = Model.News.PageIndex + 1;
+                    var PerviousPageIndex = Model.News.PageIndex - 1;
+                }
+                <a href="/news-listing/@Model.News.Select(a=>a.CategoryId).FirstOrDefault()/@PerviousPageIndex" class="btn btn-danger @PerviousDisapled">Pervious</a>
+                <a href="/news-listing/@Model.News.Select(a=>a.CategoryId).FirstOrDefault()/@NextPageIndex" class="btn btn-danger @NextDisapled">Next</a>
+            </div>
+
+
+            
+
+        </div>
+
+    </div>
+</div>

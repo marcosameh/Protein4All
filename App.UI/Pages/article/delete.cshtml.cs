@@ -8,6 +8,7 @@ using App.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.UI.Pages.article
 {
@@ -15,28 +16,31 @@ namespace App.UI.Pages.article
     public class deleteModel : PageModel
     {
         private readonly ArticleManager _ArticleManager;
-       
+        private readonly ArticleCategoryManager articleCategoryManager;
 
         [BindProperty]
 
         public Articals article { get; set; }
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
-      
-        public deleteModel(ArticleManager ArticleManager)
+        public IEnumerable<ArticleCategory> Categories { get; set; }
+        public SelectList CategoryList { get; set; }
+
+        public deleteModel(ArticleManager ArticleManager,ArticleCategoryManager articleCategoryManager)
         {
 
             _ArticleManager = ArticleManager;
-
-
+            this.articleCategoryManager = articleCategoryManager;
         }
         public IActionResult OnGet(int Id)
         {
+
             article = _ArticleManager.GetOne(Id);
 
+            Categories = articleCategoryManager.GetAllCategories();
+            CategoryList = new SelectList(Categories, "Id", "Name", article.CategoryId);
 
 
-           
             this.Id = Id;
             return Page();
 

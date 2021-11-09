@@ -1,0 +1,45 @@
+﻿@page
+@model App.UI.Pages.article_category.addModel
+@{
+    Layout = "/Pages/Shared/DashboardLayout.cshtml";
+}
+<html>
+<body>
+    <div class="h-100 row align-items-center">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="text-center">Add Category</h5>
+                    <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+                </div>
+                <div class="card-block">
+                    <form class="form-material" method="post" enctype="multipart/form-data">
+                        <div class="form-group form-default">
+                            <input type="text" asp-for="Category.Name" class="form-control" required="">
+                            <span class="form-bar text-danger" asp-validation-for="Category.Name"></span>
+                            <label class="float-label">Category Name</label>
+                        </div>
+                    
+                        <div class="form-group form-default">
+                            <input type="text" asp-for="Category.DisplayOrder" class="form-control" required="">
+                            <span class="form-bar text-danger" asp-validation-for="Category.DisplayOrder"></span>
+                            <label class="float-label">Display Order</label>
+                        </div>
+                     
+
+                        <div class="text-right">
+                            <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Add Category</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+   
+    }
+
+</body>
+</html>

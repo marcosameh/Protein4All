@@ -9,11 +9,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Core.Models
 {
-    [Index(nameof(Url), Name = "IX_Artical", IsUnique = true)]
+    [Index(nameof(Url), Name = "IX_Articals", IsUnique = true)]
     public partial class Articals
     {
         [Key]
         public int Id { get; set; }
+        public int CategoryId { get; set; }
         [Required]
         [StringLength(80)]
         public string Photo { get; set; }
@@ -31,5 +32,9 @@ namespace App.Core.Models
         [Column(TypeName = "smalldatetime")]
         public DateTime ArticalDate { get; set; }
         public int? DisplayOrder { get; set; }
+
+        [ForeignKey(nameof(CategoryId))]
+        [InverseProperty(nameof(ArticleCategory.Articals))]
+        public virtual ArticleCategory Category { get; set; }
     }
 }

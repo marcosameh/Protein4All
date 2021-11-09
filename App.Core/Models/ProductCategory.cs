@@ -21,10 +21,11 @@ namespace App.Core.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
-        public int? DisplayOrder { get; set; }
-        
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [StringLength(50)]
+        public string Photo { get; set; }
+        public int? DisplayOrder { get; set; }
+        [Required]
         public bool IsActive { get; set; }
 
         [InverseProperty("Category")]
