@@ -1,0 +1,81 @@
+﻿@page
+@model App.UI.Pages.contact_usModel
+@{
+}
+<link href="~/css/contact-us.css" rel="stylesheet" />
+<div class="container contact-form">
+    <form method="post">
+        <h3>تواصل معانا</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="text-danger" asp-validation-for="Email.Name"></span>
+                    <input type="text" asp-for="Email.Name" class="form-control" placeholder="* الاسم" value="" />
+
+                </div>
+                <div class="form-group">
+                    <span class="text-danger" asp-validation-for="Email.email"></span>
+                    <input type="text" asp-for="Email.email" class="form-control" placeholder="* الايميل" value="" />
+
+                </div>
+                <div class="form-group">
+                    <span class="text-danger" asp-validation-for="Email.PhoneNumber"></span>
+                    <input type="text" asp-for="Email.PhoneNumber"  class="form-control" placeholder="* رقم التليفون" value="" />
+
+                </div>
+              
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea  asp-for="Email.Message" class="form-control" placeholder="* اترك رسالتك هنا" style="width: 100%; height: 150px;"></textarea>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="g-recaptcha"
+                     data-sitekey="6LcGGA4dAAAAAJd4UXcuHn-CQBKk8T6j77jiQ5zb"></div>
+                <div class="text-right">
+                    <input type="submit" value="ارسال" class="btnContact" onclick="javascript: return form_validate();" placeholder="اترك رسالتك هنا">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+        function form_validate() {
+
+            if (grecaptcha.getResponse() == "") {
+                alert("Please complete 'I am not a robot' test");
+                return false;
+            }
+
+
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+
+
+            if ((@TempData["alert"]) == 1) {
+                Swal.fire(
+                    'Email Send Successfly!',
+                    '',
+                    'success'
+                )
+            }
+            else if ((@TempData["alert"]) == 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Email Not Sent!',
+                    footer: ''
+                })
+            }
+        });
+    </script>
+
+}

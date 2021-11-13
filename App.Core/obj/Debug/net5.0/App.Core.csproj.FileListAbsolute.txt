@@ -32,3 +32,4 @@ D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.csproj.CoreCompil
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.dll
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\ref\App.Core.dll
 D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.pdb
+D:\Clients\Protein4All\Code\App.Core\obj\Debug\net5.0\App.Core.csproj.AssemblyReference.cache

@@ -386,3 +386,4 @@ D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cach
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
 D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+D:\Clients\Protein4All\Code\App.UI\obj\Debug\net5.0\Razor\Pages\contact-us.cshtml.g.cs
