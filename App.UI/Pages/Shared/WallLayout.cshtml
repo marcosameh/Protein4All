@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <meta name="description" content=" منتجات جيم بروتينات احماض امينية كربوهيدرات محفزات طاقة Protein4All">
-    <meta name="keywords" content="Protein4All,Protein4All,كربوهيدرات,بروتينات, منتجات جيم, احماض امينية">
+    <meta name="description" content=" شركة مختصة في إنتاج المكملات  الغذائية والمنتجات الصحية عالية الجودة .">
+    <meta name="keywords" content="Protein4All,Protein4All,كربوهيدرات,بروتينات, منتجات جيم, احماض امينية,protein 4 all,protein4all.net,مكملات غذائية">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
@@ -58,18 +58,18 @@
         </div>
         <!-- /TOP HEADER -->
         <!-- MAIN HEADER -->
-        <div id="header">
+        <div id="header" class="img-responsive">
             <!-- container -->
             <div class="container">
                 <!-- row -->
                 <!-- LOGO -->
 
 
-                <div class="header-logo">
+                @*<div class="header-logo">
                     <a href="#" class="logo">
                         <img src="/Logo2.png" style="width:75px;height:100px;" alt="">
                     </a>
-                </div>
+                </div>*@
 
                 <!-- /LOGO -->
                 <!-- row -->
@@ -100,7 +100,7 @@
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">الرئيسية</a></li>
                     @foreach (var category in CategoryManager.GetActiveCategories())
                     {
                         if (category.Product.Any())
@@ -125,7 +125,7 @@
 
                         </ul>
                     </li>
-                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/contact-us">تواصل معانا</a></li>
 
                 </ul>
                 <!-- /NAV -->

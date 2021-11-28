@@ -444,9 +444,12 @@ textarea.input {
 \*----------------------------*/
 
 #header {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #15161D;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-image: url(../cover.jpg);
+    background-size: cover;
+    min-height: 280px;
+     background-size: 100% 100%;
 }
 
 .header-logo {
