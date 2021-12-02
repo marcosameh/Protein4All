@@ -39,7 +39,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <style>
+        #blog:hover {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER -->
@@ -116,7 +120,7 @@
                             {
                                 if (item.Articals.Any())
                                 {
-                                    <li><a href="/news-listing/@item.Id/1"><span class="text-danger font-weight-bold">@item.Name</span></a></li>
+                                    <li><a id="blog" href="/news-listing/@item.Id/1"><h5 class="text-danger font-weight-bold" ><i>@item.Name</i></h5></a></li>
 
                                 }
 
@@ -228,5 +232,9 @@
 
     <script src="~/js/main.js"></script>
     <script src="~/limonte-sweetalert2/sweetalert2.min.js"></script>
+    <script>
+      
+           
+    </script>
     @RenderSection("Scripts", false)
 </body>

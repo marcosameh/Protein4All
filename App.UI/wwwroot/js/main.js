@@ -7,11 +7,26 @@
 		$('#responsive-nav').toggleClass('active');
 	})
 
+	//$('.menu-toggle < a').onscroll = function () { myFunction() };
+	///*document.getElementById(".menu-toggle").onscroll = function() { myFunction() };*/
+
+	//function myFunction() {
+	//	this.classList.remove('first');
+	//	('#responsive-nav').toggleClass('');
+	//}
+	//document.body.addEventListener('click', fn, true);
+
+	//function fn(e) {
+	//	e.preventDefault();
+	//	$('#responsive-nav').removeClass('active');
+
+	//}
+		
 	// Fix cart dropdown from closing
 	$('.cart-dropdown').on('click', function (e) {
 		e.stopPropagation();
 	});
-
+		
 	/////////////////////////////////////////
 
 	// Products Slick
